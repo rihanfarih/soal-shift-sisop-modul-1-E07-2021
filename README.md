@@ -1,9 +1,8 @@
 # Soal-Shift-Sisop-Modul-1-E07-2021
 
-
-### Nizar Mayraldo	    	05111940000004
-### Rihan farih bunyamin	05111940000165
-### Fayha Syifa Qalbi   	05111940000185
+* Nizar Mayraldo	    	05111940000004
+* Rihan farih bunyamin	05111940000165 
+* Fayha Syifa Qalbi   	05111940000185
 
 ## No.1
 
@@ -22,5 +21,6 @@ Kuuhaku adalah orang yang sangat suka mengoleksi foto-foto digital, namun Kuuhak
 Catatan :
    -	Gunakan bash, AWK, dan command pendukung
 
+#### Penjelasan 3a
 
 
