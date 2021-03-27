@@ -13,9 +13,9 @@ rdfind -deleteduplicates true
 id=1;
 for i in $picture_dir
 do
-    baru1=$(echo $picture_dir"Koleksi_%d" "$id")
-if [ $i -lt 10 ]
-then mv -- "$i" "$0baru"
+    baru=$(echo $picture_dir"Koleksi_%d" "$id")
+if [ $id -lt 10 ]
+then mv -- "$i" "0$baru"
 else mv -- "$i" "$baru"
 fi
 done
