@@ -21,6 +21,9 @@ Kuuhaku adalah orang yang sangat suka mengoleksi foto-foto digital, namun Kuuhak
 Catatan :
    -	Gunakan bash, AWK, dan command pendukung
 
+#### Jawaban 3a
+
 #### Penjelasan 3a
+---
 
 
