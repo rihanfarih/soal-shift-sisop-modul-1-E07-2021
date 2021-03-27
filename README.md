@@ -51,7 +51,7 @@ fungsi ini untuk mengecek apakah customer tersebut melakukan transaksi di Albuqu
 
 Untuk mendapatkan angka berupa string 2017 dari kolom Order ID menggunakan `$2~"2017" `. Setelah itu, nama customer akan disimpan di sebuah array `name[$7]` dimana `$7` adalah kolom Customer Name. 
 
-### penjelasan 2c
+#### penjelasan 2c
 ```
 {
 if ($8=="Consumer"){
@@ -74,7 +74,7 @@ else if (tj3<tj2 && tj3<tj1){
 ```
 Fungsi if else ini berfungsi  untuk menghitung jumlah transaksi masing-masing segment dimana consumer dituliskan dengan $8. Untuk menghitung menggunakan counter.  yaitu `tj1` untuk consumer, `tj2` untuk corporate, dan `tj3` untuk Home office. 
 
-### penjelasan 2d
+#### penjelasan 2d
 ```
 {
 if ($13=="South"){
