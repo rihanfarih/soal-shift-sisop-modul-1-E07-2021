@@ -13,17 +13,99 @@ Tiap tahunnya, TokoShiSop mengadakan Rapat Kerja yang membahas bagaimana hasil p
 
   * a. Steven ingin mengapresiasi kinerja karyawannya selama ini dengan mengetahui Row ID dan profit percentage terbesar (jika hasil profit percentage terbesar lebih dari 1,          maka ambil Row ID yang paling besar). Karena kamu bingung, Clemong memberikan definisi dari profit percentage, yaitu:
 
-          ```Profit Percentage = (Profit Cost Price) 100```
+          Profit Percentage = (Profit Cost Price) 100
+          
   * b. Clemong memiliki rencana promosi di Albuquerque menggunakan metode MLM. Oleh karena itu, Clemong membutuhkan daftar nama customer pada transaksi tahun 2017 di Albuquerque.
   * c.TokoShiSop berfokus tiga segment customer, antara lain: Home Office, Customer, dan Corporate. Clemong ingin meningkatkan penjualan pada segmen customer yang paling sedikit. Oleh karena itu, Clemong membutuhkan segment customer dan jumlah transaksinya yang paling sedikit.
   * d.TokoShiSop membagi wilayah bagian (region) penjualan menjadi empat bagian, antara lain: Central, East, South, dan West. Manis ingin mencari wilayah bagian (region) yang memiliki total keuntungan (profit) paling sedikit dan total keuntungan wilayah tersebut.
  * e.kamu diharapkan bisa membuat sebuah script yang akan menghasilkan file “hasil.txt” yang memiliki format yang ditentukan
  
 #### Penjelasan 2a
-  Mencari nilai Profit Percentage
+  * Mencari nilai Profit Percentage
+  
   `cuan=($21/($18-$21))*100` 
   
-  Merupakan rumus untuk mencari profit percentage dimana didapatkan dari profit `$21` dibagi dengan hasil dari pengurangan sales `$18` dan profit `$21` lalu dikalikan 100 sehingga didapatkan persentasenya
+  Merupakan rumus untuk mencari profit percentage `cuan` dimana didapatkan dari profit `$21` dibagi dengan hasil dari pengurangan sales `$18` dan profit `$21` lalu dikalikan 100 sehingga didapatkan persentasenya
+  
+  * Mencari nilai profit percentage terbesar
+    
+    ```
+    if (cuan>=max){
+    max=cuan
+    flag=$1
+    }
+    }
+    ```
+   Membandingkan Profit Percentage `cuan` dengan suatu variabel max untuk menyimpan nilai terbesar. Apabila nilai `cuan` lebih besar dibandingkan dengan   nilai max maka Profit Percentage terbesar akan disimpan di variabel max. Kemudian, `flag=$1` digunakan untuk menyimpan hasil paling besar.
+   
+#### penjelasan 2b
+```
+{
+if ($10=="Albuquerque" && $2~2017){
+   name[$7]+=1
+   }
+}
+```
+
+fungsi ini untuk mengecek apakah customer tersebut melakukan transaksi di Albuquerque dari kolom Citydengan ` $10=="Albuquerque"` setelah itu juga dicek apakah customer tersebut pada tahun 2017 melakukan transaksi di Albuquerque.
+
+Untuk mendapatkan angka berupa string 2017 dari kolom Order ID menggunakan `$2~"2017" `. Setelah itu, nama customer akan disimpan di sebuah array `name[$7]` dimana `$7` adalah kolom Customer Name. 
+
+### penjelasan 2c
+```
+{
+if ($8=="Consumer"){
+   tj1+=1}
+else if ($8=="Corporate") {
+   tj2+=1}
+else if ($8=="Home Office") {
+   tj3+=1}
+hasil=0
+if (tj1<tj2 && tj1<tj3){
+   segmen="Consumer"
+   hasil=tj1}
+else if (tj2<tj1 && tj2<tj3){
+   segmen="Corporate"
+   hasil=tj2}
+else if (tj3<tj2 && tj3<tj1){
+   segmen="Home Office"
+   hasil=tj3}
+}
+```
+Fungsi if else ini berfungsi  untuk menghitung jumlah transaksi masing-masing segment dimana consumer dituliskan dengan $8. Untuk menghitung menggunakan counter.  yaitu `tj1` untuk consumer, `tj2` untuk corporate, dan `tj3` untuk Home office. 
+
+### penjelasan 2d
+```
+{
+if ($13=="South"){
+   p1+=$21}
+else if ($13=="West"){
+   p2+=$21}
+else if ($13=="East"){
+   p3+=$21}
+else if ($13=="Central"){
+   p4+=$21}
+jawaban=0
+if (p1<p2 && p1<p3 && p1<p4){
+   daerah="South"
+   jawaban=p1
+}
+else if (p2<p1 && p2<p3 && p2<p4){
+   daerah="West"
+   jawaban=p2
+}
+else if (p3<p1 && p3<p2 && p1<p4){
+   daerah="East"
+   jawaban=p3
+}
+else if (p4<p1 && p4<p2 && p4<p3){
+   daerah="Central"
+   jawaban=p4
+}
+}
+```
+fungsi if condition digunakan untuk mengecek string south, west, east, dan central pada kolom Region `$13`. Keuntungan Total keseluruhan masing-masing region disimpan.
+  
 
 ## No.3
 
