@@ -1,6 +1,6 @@
 # Soal-Shift-Sisop-Modul-1-E07-2021
 
-* Nizar Mayraldo	    	05111940000004
+* Nizar Mayraldo	    05111940000004
 * Rihan farih bunyamin	05111940000165 
 * Fayha Syifa Qalbi   	05111940000185
 
@@ -22,6 +22,7 @@ Catatan :
    -	Gunakan bash, AWK, dan command pendukung
 
 #### Jawaban 3a
+[Soal3a.sh](https://github.com/rihanfarih/soal-shift-sisop-modul-1-E07-2021/blob/main/soal3/soal3a.sh)
 
 #### Penjelasan 3a
 ---
