@@ -1,27 +1,29 @@
 #!/bin/bash
 
-picture_dir="/home/bulqis/Desktop/sisop"
-log_dir="/home/bulqis/Desktop/sisop/Foto.log"
+picture_dir="/home/sfayha/Documents/SISOP/modul1/soal3"
+#log_dir="/home/sfayha/Documents/SISOP/modul1/soal3/Foto.log"
 
 for i in {1..23}
 do 
     if [ $i -lt 10 ]
-    then wget -a $log_dir "https://loremflickr.com/320/240/kitten" -O Koleksi_0"$i"
-    else wget -a $log_dir "https://loremflickr.com/320/240/kitten" -O Koleksi_"$i"
+    then wget -a "$picture_dir"/Foto.log "https://loremflickr.com/320/240/kitten" -O "$picture_dir"/Koleksi_0"$i".png
+    else wget -a "$picture_dir"/Foto.log "https://loremflickr.com/320/240/kitten" -O "$picture_dir"/Koleksi_"$i".png
 fi    
 done
 
-rdfind -deleteduplicates true 
+rdfind -deleteduplicates true "$picture_dir"
 
 id=1;
-for i in $picture_dir
+cd "$picture_dir"
+for i in Koleksi_*.png
 do
-    baru=$(echo $picture_dir"Koleksi_%d" "$id")
+    #baru=$( $picture_dir"Koleksi_0%d" "$id")
+    #baru=$( $picture_dir"Koleksi_%d" "$id")
 if [ $id -lt 10 ]
-    then mv -- "$i" "0$baru"
-    else mv -- "$i" "$baru"
+    then mv -- "$i" Koleksi_0"$id"
+    else 
+        mv -- "$i" Koleksi_"$id"
 fi
     let id=$id+1
 done
-
 
