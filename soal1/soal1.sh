@@ -17,3 +17,7 @@ pesan_error=$(grep -oP "(?<=ERROR ).*(?<=\ )" "$syslog.log")
 hitung_pesan=$(echo "$pesan_error" | sort | uniq -c | sort -nr)
 #echo $pesan_error
 #echo $hitung_pesan
+
+#no 1c
+userCount=$(grep -P -o "$(?<=[(])(.*)(?=[)])" $syslog.log | sort -n | uniq -c) 
+userList=$(grep -P -o "$(?<=[(])(.*)(?=[)])" $syslog.log | sort -u)
