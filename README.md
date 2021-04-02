@@ -6,7 +6,31 @@
 
 ## No.1
 
-susah euy
+Ryujin baru saja diterima sebagai IT support di perusahaan Bukapedia. Dia diberikan tugas untuk membuat laporan harian untuk aplikasi internal perusahaan, ticky. Terdapat 2 laporan yang harus dia buat, yaitu laporan daftar peringkat pesan error terbanyak yang dibuat oleh ticky dan laporan penggunaan user pada aplikasi ticky. Untuk membuat laporan tersebut, Ryujin harus melakukan beberapa hal berikut:
+
+#### penjelasan 1a.
+ Mengumpulkan informasi dari log aplikasi yang terdapat pada file syslog.log. Informasi yang diperlukan antara lain: jenis log (ERROR/INFO), pesan log, dan username pada setiap baris lognya. Karena Ryujin merasa kesulitan jika harus memeriksa satu per satu baris secara manual, dia menggunakan regex untuk mempermudah pekerjaannya. Bantulah Ryujin  membuat regex tersebut.
+ 
+ ```
+ error=$(grep -E "ERROR" syslog.log)
+info=$(grep -E "INFO" syslog.log)
+jumlaherror=$(grep -c 'ERROR' syslog.log)
+jumlahinfo=$(grep -c 'INFO' syslog.log)
+```
+
+fungsi `grep` berfungsi Untuk mengumpulkan semua informasi log di syslog.og  , dimana ia akan mencari kata kunci yang telah ditentukan . lalu ia pada `jumlah error` dan `jumlah info` ia akan menampilkan jumlah errornya dengan fungsi `count` 
+
+#### penjelasan 1b
+Kemudian, Ryujin harus menampilkan semua pesan error yang muncul beserta jumlah kemunculannya.
+
+```
+pesan_error=$(grep -oP "(?<=ERROR ).*(?<=\ )" "$syslog.log") 
+hitung_pesan=$(echo "$pesan_error" | sort | uniq -c | sort -n)
+```
+berfungsi untuk menampilkan semua pesan error lalu pada bagian hitung pesan, pesan yang telah diambil dari sebelumya diurutkan kemudian dihitung dengan `-c` dimana tepatnya `uniq -c` dipakai agar pesan dari yang telah dikelompokkan hanya muncul sekali saja per tipe dan menghitung kemunculan pesan tersebut di dalam file, lalu `sort -n` berfungsi agar sum yang sebelumnya dicari urut.
+
+#### penjelasan 1c
+
 
 ## No.2
 Steven dan Manis mendirikan sebuah startup bernama “TokoShiSop”. Sedangkan kamu dan Clemong adalah karyawan pertama dari TokoShiSop. Setelah tiga tahun bekerja, Clemong diangkat menjadi manajer penjualan TokoShiSop, sedangkan kamu menjadi kepala gudang yang mengatur keluar masuknya barang.
