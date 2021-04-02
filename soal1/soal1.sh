@@ -19,5 +19,4 @@ hitung_pesan=$(echo "$pesan_error" | sort | uniq -c | sort -nr)
 #echo $hitung_pesan
 
 #no 1c
-userCount=$(grep -P -o "$(?<=[(])(.*)(?=[)])" $syslog.log | sort -n | uniq -c) 
-userList=$(grep -P -o "$(?<=[(])(.*)(?=[)])" $syslog.log | sort -u)
+hitung_user=$(grep -P -o "$(?<=[(])(.*)(?=[)])" $syslog.log | sort -n | uniq -c) 
