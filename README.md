@@ -30,6 +30,14 @@ hitung_pesan=$(echo "$pesan_error" | sort | uniq -c | sort -n)
 berfungsi untuk menampilkan semua pesan error lalu pada bagian hitung pesan, pesan yang telah diambil dari sebelumya diurutkan kemudian dihitung dengan `-c` dimana tepatnya `uniq -c` dipakai agar pesan dari yang telah dikelompokkan hanya muncul sekali saja per tipe dan menghitung kemunculan pesan tersebut di dalam file, lalu `sort -n` berfungsi agar sum yang sebelumnya dicari urut.
 
 #### penjelasan 1c
+Ryujin juga harus dapat menampilkan jumlah kemunculan log ERROR dan INFO untuk setiap user-nya.
+```
+hitung_user=$(grep -P -o "$(?<=[(])(.*)(?=[)])" $syslog.log | sort -n | uniq -c) 
+
+```
+nah karena pada data di syslog.log nama user ditulis dengan `(nama user)` dan terletak di bagian terakhir baris maka regex yang digunakan ialah `(?<=[(])(.*)(?=[)])` dimana akan mencari isi dari dalam pasangan tanda kurung.
+
+seperti pada nomor 1b sebelumnya digunakan grep -P dan -o dan `sort-n` serta `unic-c` berfungsi untuk menghitung dan mengurutkan munculnya user
 
 
 ## No.2
