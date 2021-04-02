@@ -20,3 +20,6 @@ hitung_pesan=$(echo "$pesan_error" | sort | uniq -c | sort -nr)
 
 #no 1c
 hitung_user=$(grep -P -o "$(?<=[(])(.*)(?=[)])" $syslog.log | sort -n | uniq -c) 
+
+#1d
+echo "Error,Count" > error_message.csv
