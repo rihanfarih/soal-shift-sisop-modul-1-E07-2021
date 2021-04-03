@@ -154,10 +154,87 @@ Kuuhaku adalah orang yang sangat suka mengoleksi foto-foto digital, namun Kuuhak
 Catatan :
    -	Gunakan bash, AWK, dan command pendukung
 
-#### Jawaban 3a
-[Soal3a.sh](https://github.com/rihanfarih/soal-shift-sisop-modul-1-E07-2021/blob/main/soal3/soal3a.sh)
-
 #### Penjelasan 3a
----
+```
+for i in {1..23}
+do 
+    if [ $i -lt 10 ]
+    then wget -a "$picture_dir"/Foto.log "https://loremflickr.com/320/240/kitten" -O "$picture_dir"/Koleksi_0"$i".png
+    else wget -a "$picture_dir"/Foto.log "https://loremflickr.com/320/240/kitten" -O "$picture_dir"/Koleksi_"$i".png
+fi    
+done
+
+rdfind -deleteduplicates true "$picture_dir"
+```
+Fungsi for diatas untuk mendownload 23 gambar dari URL Kucing dan menyimpan lognya pada Foto.log, kemudian kami menggunakan rdfind -deleteduplicates untuk menemukan duplikat dan menghapusnya
+```
+id=1;
+cd "$picture_dir"
+for i in Koleksi_*.png
+do
+    #baru=$( $picture_dir"Koleksi_0%d" "$id")
+    #baru=$( $picture_dir"Koleksi_%d" "$id")
+if [ $id -lt 10 ]
+    then mv -- "$i" Koleksi_0"$id"
+    else 
+        mv -- "$i" Koleksi_"$id"
+fi
+    let id=$id+1
+done
+```
+Sedangkan untuk fungsi for kedua diatas ini untuk mengurutkan kembali nama penyimpanan gambar dengan format yang telah ditentukan di soal.
+
+#### Penjelasan 3b
+```
+picture_dir="/home/sfayha/Documents/SISOP/modul1/soal3"
+sekarang=$(date +"%d-%m-%Y")
+#log_dir="/home/sfayha/Documents/SISOP/modul1/soal3/Foto.log"
+
+mkdir "$picture_dir"/"$sekarang"
+for i in {1..23}
+```
+Untuk soal 3b ini pertama kami membuat directory/folder dengan nama mkdir, dan menjalankan script yang sama dengan soal 3a.
+` mv ./Koleksi_* ./Foto.log "$picture_dir"/"$sekarang" `
+Selanjutnya memindahkan gambar yang telah didownload dengan mv ke directory yang telah dibuat, dan untuk menjalankan secara otomatis kami menambahkan crontab sebagai berikut,
+```
+0 20 1-31/7 * * bash /home/bulqis/Desktop/sisop/soal3b.sh
+0 20 2-31/4 * * bash /home/bulqis/Desktop/sisop/soal3b.sh
+```
+
+#### Penjelasan 3c
+```
+sekarang=`date +"%d-%m-%Y"`
+kemarin=`date --date "yesterday" '+%d-%m-%Y'`
+#cek_kucing="$Kucing_$kemarin"
+
+#Untuk Ganjil Download Kucing
+if [ -d "Kelinci_$kemarin" ]
+then 
+    mkdir "$picture_dir"/"Kucing_$sekarang"
+    rm -r "$sekarang"
+        cd "$picture_dir"/"Kucing_$sekarang" 
+        # bash ./soal3a.sh
+else   
+    mkdir "$picture_dir"/"Kelinci_$sekarang"
+    rm -r "$sekarang"
+        cd "Kelinci_$sekarang"
+        # bash ./soal3a.sh
+```
+Pada 3c ini kami mengecek apakah folder dengan nama Kelinci_(tanggal kemarin)  untuk mengunduh gambar kucing dan kelinci bergantian, jika folder kelinci dengan tanggal kemarin sudah ada maka akan mengunduh gambar kucing. Begitupun sebaliknya, jika belum ada folder kelinci dengan tanggal kemarin maka akan mengunduh gambar kucing.
+
+#### Penjelasan 3d
+```
+date_today=$(date +%m%d%Y)
+cd "$picture_dir"
+zip -P "$date_today" -m Koleksi.zip -r Kucing_* Kelinci_* 
+```
+Pada 3d diminta untuk memindahkan semua folder ke dalam zip dengan format nama Koleksi.zip dan menguncinya dengan password tanggal dihari tersebut.
+
+#### Penjelasan 3e
+Pada 3e diminta untuk menjalankan script secara otomatis untuk menzipkan folder saat waktu kuliah yaitu pada jam 07.00-18.00 Senin-Jumat, dan meng-unzipkannya pada waktu diluar itu.
+```
+0 7 * * 1-5 bash /home/sfayha/Documents/SISOP/modul1/soal3/soal3d.sh
+* 18 * * 1-5 bash /home/sfayha/Documents/SISOP/modul1/soal3/soal3e.sh
+```
 
 
