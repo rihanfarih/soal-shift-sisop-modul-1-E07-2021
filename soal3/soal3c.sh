@@ -5,14 +5,12 @@
 picture_dir="/home/sfayha/Documents/SISOP/modul1/soal3"
 
 #log_dir='pwd'
-sekarang=$(date +"%d-%m-%Y")
-kemarin=$(date --date yesterday "+%a %d-%m-%Y")
+sekarang=`date +"%d-%m-%Y"`
+kemarin=`date --date "yesterday" '+%d-%m-%Y'`
 #cek_kucing="$Kucing_$kemarin"
-now=$(date "+%d")
-let cekdate=$now%2
 
 #Untuk Ganjil Download Kucing
-if [ $cekdate -eq 1 ]
+if [ -d "Kelinci_$kemarin" ]
 then 
     mkdir "$picture_dir"/"Kucing_$sekarang"
     rm -r "$sekarang"
