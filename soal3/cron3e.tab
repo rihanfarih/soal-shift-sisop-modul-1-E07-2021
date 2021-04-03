@@ -1,2 +1,2 @@
 0 7 * * 1-5 bash /home/sfayha/Documents/SISOP/modul1/soal3/soal3d.sh
-0 18 * * 1-5 bash /home/sfayha/Documents/SISOP/modul1/soal3/soal3e.sh
+* 18 * * 1-5 bash /home/sfayha/Documents/SISOP/modul1/soal3/soal3e.sh
