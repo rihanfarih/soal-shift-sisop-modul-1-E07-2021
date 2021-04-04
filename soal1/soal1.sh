@@ -13,13 +13,13 @@ jumlahinfo=$(grep -c 'INFO' syslog.log)
 #echo $jumlahinfo
 
 #no 1b
-pesan_error=$(grep -oP "(?<=ERROR ).*(?<=\ )" "$syslog.log") 
+pesan_error=$(grep -oP "(?<=ERROR ).*(?<=\ )" syslog.log) 
 hitung_pesan=$(echo "$pesan_error" | sort | uniq -c | sort -nr)
 #echo $pesan_error
 #echo $hitung_pesan
 
 #no 1c
-hitung_user=$(grep -P -o "$(?<=[(])(.*)(?=[)])" $syslog.log | sort -n | uniq -c) 
+hitung_user=$(grep -P -o "$(?<=[(])(.*)(?=[)])" syslog.log | sort -n | uniq -c) 
 
 #1d
 echo "Error,Count" > error_message.csv
