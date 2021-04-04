@@ -56,7 +56,7 @@ nah karena pada data di syslog.log nama user ditulis dengan `(nama user)` dan te
 seperti pada nomor 1b sebelumnya digunakan grep -P dan -o dan `sort-n` serta `unic-c` berfungsi untuk menghitung dan mengurutkan munculnya user
 
 **Screenshot Hasil**
-![nomor1c]https://github.com/rihanfarih/soal-shift-sisop-modul-1-E07-2021/blob/main/foto/foto1c.jpg)
+![nomor1c](https://github.com/rihanfarih/soal-shift-sisop-modul-1-E07-2021/blob/main/foto/foto1c.jpg)
 
 **Kendala dalam pengerjaan**
 * Kesulitan dalam menentukan regrex yang benar
