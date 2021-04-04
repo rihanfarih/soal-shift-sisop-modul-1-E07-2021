@@ -76,6 +76,20 @@ Tiap tahunnya, TokoShiSop mengadakan Rapat Kerja yang membahas bagaimana hasil p
   * d.TokoShiSop membagi wilayah bagian (region) penjualan menjadi empat bagian, antara lain: Central, East, South, dan West. Manis ingin mencari wilayah bagian (region) yang memiliki total keuntungan (profit) paling sedikit dan total keuntungan wilayah tersebut.
  * e.kamu diharapkan bisa membuat sebuah script yang akan menghasilkan file “hasil.txt” yang memiliki format yang ditentukan
  
+ pada nomor 2 ini kami menggunakan fungsi begin untuk memulai prosesnya terlebih dahulu dan export LC_ALL=C untuk membaca tanda pemisah pada data
+  
+    ```
+    export LC_ALL=C
+    awk 'BEGIN { FS="\t" }
+    ```
+    
+kemudian di akhir kami menggunakan end untuk menyelesaikan proses dan membuat fungsi print untuk menampilkan data yang telah diproses dan diminta sesuai dengan soal
+    ```
+    END{
+    ...
+    } Laporan-TokoShiSop.tsv > hasil.txt
+    ```
+
 #### Penjelasan 2a
   * Mencari nilai Profit Percentage
   
@@ -160,10 +174,11 @@ else if (p4<p1 && p4<p2 && p4<p3){
 }
 }
 ```
-fungsi if condition digunakan untuk mengecek string south, west, east, dan central pada kolom Region `$13`. Keuntungan Total keseluruhan masing-masing region disimpan.
+fungsi if condition digunakan untuk mengecek string south, west, east, dan central pada kolom Region `$13` dan membandingkan jumlah transaksi dari tiap region untuk dicari region mana yang memiliki total keuntungan paling sedikit dari total keuntungan wilayah tersebut kemudian jumlah trasaki yang dicari disimpan pada variable jawaban dan regionnya pada variabel daerah untuk hasil yang didapatkan.
 
 #### penjelasan 2e
 agar dapat dibaca hasil dimasukkan pada pada file hasil.txt dengan format yang sudah diberikan di soal dan berikut hasilnya
+
 **Screenshot Hasil**
 
 ![nomor2](https://github.com/rihanfarih/soal-shift-sisop-modul-1-E07-2021/blob/main/foto/fotocatsoal2.jpg)
@@ -215,9 +230,6 @@ done
 ```
 Sedangkan untuk fungsi for kedua diatas ini untuk mengurutkan kembali nama penyimpanan gambar dengan format yang telah ditentukan di soal.
 
-**Screenshot Hasil**
-![nomor3a](https://github.com/rihanfarih/soal-shift-sisop-modul-1-E07-2021/blob/main/foto/soal3a.png)
-
 #### Penjelasan 3b
 ```
 picture_dir="/home/sfayha/Documents/SISOP/modul1/soal3"
@@ -234,8 +246,6 @@ Selanjutnya memindahkan gambar yang telah didownload dengan mv ke directory yang
 0 20 1-31/7 * * bash /home/bulqis/Desktop/sisop/soal3b.sh
 0 20 2-31/4 * * bash /home/bulqis/Desktop/sisop/soal3b.sh
 ```
-**Screenshot Hasil**
-![nomor3b](https://github.com/rihanfarih/soal-shift-sisop-modul-1-E07-2021/blob/main/foto/soal3b.png)
 
 #### Penjelasan 3c
 ```
@@ -258,9 +268,6 @@ else
 ```
 Pada 3c ini kami mengecek apakah folder dengan nama Kelinci_(tanggal kemarin)  untuk mengunduh gambar kucing dan kelinci bergantian, jika folder kelinci dengan tanggal kemarin sudah ada maka akan mengunduh gambar kucing. Begitupun sebaliknya, jika belum ada folder kelinci dengan tanggal kemarin maka akan mengunduh gambar kucing.
 
-**Screenshot Hasil**
-![nomor3c](https://github.com/rihanfarih/soal-shift-sisop-modul-1-E07-2021/blob/main/foto/soal3c.png)
-
 #### Penjelasan 3d
 ```
 date_today=$(date +%m%d%Y)
@@ -269,9 +276,6 @@ zip -P "$date_today" -m Koleksi.zip -r Kucing_* Kelinci_*
 ```
 Pada 3d diminta untuk memindahkan semua folder ke dalam zip dengan format nama Koleksi.zip dan menguncinya dengan password tanggal dihari tersebut.
 
-**Screenshot Hasil**
-![nomor3d](https://github.com/rihanfarih/soal-shift-sisop-modul-1-E07-2021/blob/main/foto/soal3d.sh.png)
-
 #### Penjelasan 3e
 Pada 3e diminta untuk menjalankan script secara otomatis untuk menzipkan folder saat waktu kuliah yaitu pada jam 07.00-18.00 Senin-Jumat, dan meng-unzipkannya pada waktu diluar itu.
 ```
@@ -279,6 +283,4 @@ Pada 3e diminta untuk menjalankan script secara otomatis untuk menzipkan folder 
 * 18 * * 1-5 bash /home/sfayha/Documents/SISOP/modul1/soal3/soal3e.sh
 ```
 
-**Screenshot Hasil**
-![nomor3e](https://github.com/rihanfarih/soal-shift-sisop-modul-1-E07-2021/blob/main/foto/soal3e.png)
 
