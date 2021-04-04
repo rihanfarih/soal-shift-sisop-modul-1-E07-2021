@@ -20,25 +20,47 @@ jumlahinfo=$(grep -c 'INFO' syslog.log)
 
 fungsi `grep` berfungsi Untuk mengumpulkan semua informasi log di syslog.og  , dimana ia akan mencari kata kunci yang telah ditentukan . lalu ia pada `jumlah error` dan `jumlah info` ia akan menampilkan jumlah errornya dengan fungsi `count` 
 
+**Screenshot Hasil**
+![nomor1a](https://github.com/rihanfarih/soal-shift-sisop-modul-1-E07-2021/blob/main/foto/foto1a.jpg)
+
+**Kendala dalam pengerjaan**
+* terlihat pada hasil run bahwa tampilan harus diperbaiki dengan mengubah script lebih baik lagi
+
+
+
 #### penjelasan 1b
 Kemudian, Ryujin harus menampilkan semua pesan error yang muncul beserta jumlah kemunculannya.
 
 ```
-pesan_error=$(grep -oP "(?<=ERROR ).*(?<=\ )" "$syslog.log") 
+pesan_error=$(grep -oP "(?<=ERROR ).*(?<=\ )" "syslog.log") 
 hitung_pesan=$(echo "$pesan_error" | sort | uniq -c | sort -n)
 ```
 berfungsi untuk menampilkan semua pesan error lalu pada bagian hitung pesan, pesan yang telah diambil dari sebelumya diurutkan kemudian dihitung dengan `-c` dimana tepatnya `uniq -c` dipakai agar pesan dari yang telah dikelompokkan hanya muncul sekali saja per tipe dan menghitung kemunculan pesan tersebut di dalam file, lalu `sort -n` berfungsi agar sum yang sebelumnya dicari urut.
 
+**Screenshot Hasil**
+![nomor1b](https://github.com/rihanfarih/soal-shift-sisop-modul-1-E07-2021/blob/main/foto/foto1b.jpg)
+
+**Kendala dalam pengerjaan**
+* Kesulitan dalam menentukan regrex yang benar
+* Hasil memang menampilkan jumlah error, namun tetap tidak menampilkan jumlah berserta jenisnya secara eksplisit
+
+
 #### penjelasan 1c
 Ryujin juga harus dapat menampilkan jumlah kemunculan log ERROR dan INFO untuk setiap user-nya.
 ```
-hitung_user=$(grep -P -o "$(?<=[(])(.*)(?=[)])" $syslog.log | sort -n | uniq -c) 
+hitung_user=$(grep -P -o "$(?<=[(])(.*)(?=[)])" syslog.log | sort -n | uniq -c) 
 
 ```
 nah karena pada data di syslog.log nama user ditulis dengan `(nama user)` dan terletak di bagian terakhir baris maka regex yang digunakan ialah `(?<=[(])(.*)(?=[)])` dimana akan mencari isi dari dalam pasangan tanda kurung.
 
 seperti pada nomor 1b sebelumnya digunakan grep -P dan -o dan `sort-n` serta `unic-c` berfungsi untuk menghitung dan mengurutkan munculnya user
 
+**Screenshot Hasil**
+![nomor1c]https://github.com/rihanfarih/soal-shift-sisop-modul-1-E07-2021/blob/main/foto/foto1c.jpg)
+
+**Kendala dalam pengerjaan**
+* Kesulitan dalam menentukan regrex yang benar
+* mungkin agar lebih rapi hendaknya hasil ditampilkan baris per baris (bukan dalam satu line )
 
 ## No.2
 Steven dan Manis mendirikan sebuah startup bernama “TokoShiSop”. Sedangkan kamu dan Clemong adalah karyawan pertama dari TokoShiSop. Setelah tiga tahun bekerja, Clemong diangkat menjadi manajer penjualan TokoShiSop, sedangkan kamu menjadi kepala gudang yang mengatur keluar masuknya barang.
