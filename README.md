@@ -163,6 +163,7 @@ else if (p4<p1 && p4<p2 && p4<p3){
 fungsi if condition digunakan untuk mengecek string south, west, east, dan central pada kolom Region `$13`. Keuntungan Total keseluruhan masing-masing region disimpan.
 
 **Screenshot Hasil**
+
 ![nomor2](https://github.com/rihanfarih/soal-shift-sisop-modul-1-E07-2021/blob/main/foto/fotocatsoal2.jpg)
 ![nomor2](https://github.com/rihanfarih/soal-shift-sisop-modul-1-E07-2021/blob/main/foto/fotohasilsoal2.jpg)
 
