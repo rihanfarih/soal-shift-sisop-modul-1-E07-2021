@@ -231,6 +231,9 @@ done
 ```
 Sedangkan untuk fungsi for kedua diatas ini untuk mengurutkan kembali nama penyimpanan gambar dengan format yang telah ditentukan di soal.
 
+**Screenshot Hasil**
+![nomor3a](https://github.com/rihanfarih/soal-shift-sisop-modul-1-E07-2021/blob/main/foto/soal3a.png)
+
 #### Penjelasan 3b
 ```
 picture_dir="/home/sfayha/Documents/SISOP/modul1/soal3"
@@ -247,6 +250,8 @@ Selanjutnya memindahkan gambar yang telah didownload dengan mv ke directory yang
 0 20 1-31/7 * * bash /home/bulqis/Desktop/sisop/soal3b.sh
 0 20 2-31/4 * * bash /home/bulqis/Desktop/sisop/soal3b.sh
 ```
+**Screenshot Hasil**
+![nomor3b](https://github.com/rihanfarih/soal-shift-sisop-modul-1-E07-2021/blob/main/foto/soal3b.png)
 
 #### Penjelasan 3c
 ```
@@ -269,6 +274,9 @@ else
 ```
 Pada 3c ini kami mengecek apakah folder dengan nama Kelinci_(tanggal kemarin)  untuk mengunduh gambar kucing dan kelinci bergantian, jika folder kelinci dengan tanggal kemarin sudah ada maka akan mengunduh gambar kucing. Begitupun sebaliknya, jika belum ada folder kelinci dengan tanggal kemarin maka akan mengunduh gambar kucing.
 
+**Screenshot Hasil**
+![nomor3c](https://github.com/rihanfarih/soal-shift-sisop-modul-1-E07-2021/blob/main/foto/soal3c.png)
+
 #### Penjelasan 3d
 ```
 date_today=$(date +%m%d%Y)
@@ -277,11 +285,19 @@ zip -P "$date_today" -m Koleksi.zip -r Kucing_* Kelinci_*
 ```
 Pada 3d diminta untuk memindahkan semua folder ke dalam zip dengan format nama Koleksi.zip dan menguncinya dengan password tanggal dihari tersebut.
 
+**Screenshot Hasil**
+![nomor3d](https://github.com/rihanfarih/soal-shift-sisop-modul-1-E07-2021/blob/main/foto/soal3d.sh.png)
+
 #### Penjelasan 3e
 Pada 3e diminta untuk menjalankan script secara otomatis untuk menzipkan folder saat waktu kuliah yaitu pada jam 07.00-18.00 Senin-Jumat, dan meng-unzipkannya pada waktu diluar itu.
 ```
 0 7 * * 1-5 bash /home/sfayha/Documents/SISOP/modul1/soal3/soal3d.sh
 * 18 * * 1-5 bash /home/sfayha/Documents/SISOP/modul1/soal3/soal3e.sh
 ```
+
+**Screenshot Hasil**
+![nomor3e](https://github.com/rihanfarih/soal-shift-sisop-modul-1-E07-2021/blob/main/foto/soal3e.png)
+
+
 
 
