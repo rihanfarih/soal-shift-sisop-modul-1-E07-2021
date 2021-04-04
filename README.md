@@ -298,6 +298,7 @@ Pada 3e diminta untuk menjalankan script secara otomatis untuk menzipkan folder 
 **Screenshot Hasil**
 ![nomor3e](https://github.com/rihanfarih/soal-shift-sisop-modul-1-E07-2021/blob/main/foto/soal3e.png)
 
-
+**Kendala dalam pengerjaan**
+* Terjadi beberapa kali pertama kendala error dalam menemukan gambar duplikat dan menghapusnya
 
 
