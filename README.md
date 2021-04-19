@@ -175,6 +175,7 @@ else if (p4<p1 && p4<p2 && p4<p3){
 }
 }
 ```
+
 fungsi if condition digunakan untuk mengecek string south, west, east, dan central pada kolom Region `$13` dan membandingkan jumlah transaksi dari tiap region untuk dicari region mana yang memiliki total keuntungan paling sedikit dari total keuntungan wilayah tersebut kemudian jumlah trasaki yang dicari disimpan pada variable jawaban dan regionnya pada variabel daerah untuk hasil yang didapatkan.
 
 #### penjelasan 2e
